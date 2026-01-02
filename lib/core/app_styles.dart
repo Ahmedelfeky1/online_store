@@ -29,6 +29,11 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.white,
   );
+  static TextStyle style24white = const TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: AppColors.white,
+  );
   static TextStyle style14Error = const TextStyle(
     fontSize: 14,
     color: AppColors.error,

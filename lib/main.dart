@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_shop/cubit/cubit/appauth_cubit.dart';
+import 'package:online_shop/presentation/screens/home_screen.dart';
 import 'package:online_shop/presentation/screens/login_screen.dart';
+import 'package:online_shop/presentation/screens/on_bording_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
@@ -18,10 +22,13 @@ class onLineStore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Online Shop",
-      home: LoginScreen(),
+    return BlocProvider(
+      create: (context) => AppauthCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Online Shop",
+        home: LoginScreen(),
+      ),
     );
   }
 }

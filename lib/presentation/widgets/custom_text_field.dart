@@ -27,7 +27,7 @@ class CustomTextField extends StatefulWidget {
   final Widget? suffixIcon;
   final Color? fillColor;
   final bool? filled;
-  final Text? label;
+  final String? label;
   final TextStyle? labelStyle;
 
   @override
@@ -56,7 +56,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           onChanged: widget.onChanged,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return "${widget.label ??'Field'} is required";
+              return "${widget.label ?? 'Field'} is required";
             }
             return null;
           },
@@ -75,7 +75,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 : widget.suffixIcon,
             filled: widget.filled,
             prefixIconColor: AppStyles.style16.color,
-            label: widget.label,
+            labelText: widget.label,
             labelStyle: widget.labelStyle,
             fillColor: widget.fillColor,
             border: UnderlineInputBorder(
