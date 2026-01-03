@@ -44,6 +44,7 @@ dependencies:
   bloc: ^9.2.0
   meta: ^1.17.0
   fluttertoast: ^9.0.0
+  flutter_native_splash: ^2.4.0
 
 dev_dependencies:
   flutter_test:
@@ -97,3 +98,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+flutter_native_splash:
+  color: "#53B175"
+  android_12:
+    color: "#53B175"
+  fullscreen: true

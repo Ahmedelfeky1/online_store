@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop/core/app_images.dart';
 import 'package:online_shop/core/app_styles.dart';
+import 'package:online_shop/presentation/screens/login_screen.dart';
 import 'package:online_shop/presentation/widgets/custom_elvat_bt.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBordingScreen extends StatelessWidget {
   const OnBordingScreen({super.key});
@@ -39,7 +41,18 @@ class OnBordingScreen extends StatelessWidget {
               style: AppStyles.style14,
             ),
             SizedBox(height: 60),
-            CustomElvatBt(text: "Get Started", onPressed: () {}, width: 300),
+            CustomElvatBt(
+              text: "Get Started",
+              onPressed: () async {
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.setBool("onboarding", true);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
+              width: 300,
+            ),
             SizedBox(height: 40),
           ],
         ),

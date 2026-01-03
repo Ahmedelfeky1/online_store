@@ -16,6 +16,9 @@ class CustomTextField extends StatefulWidget {
     this.filled,
     this.label,
     this.labelStyle,
+    this.border,
+    this.prefixIcon,
+    this.hintStyle,
   });
 
   final String? text;
@@ -29,6 +32,9 @@ class CustomTextField extends StatefulWidget {
   final bool? filled;
   final String? label;
   final TextStyle? labelStyle;
+  final InputBorder? border;
+  final Widget? prefixIcon;
+  final TextStyle? hintStyle;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -62,6 +68,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
           },
           decoration: InputDecoration(
             hintText: widget.hintText,
+            
+            hintStyle: widget.hintStyle,
             suffixIcon: widget.isPassword
                 ? IconButton(
                     icon: Icon(
@@ -74,16 +82,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   )
                 : widget.suffixIcon,
             filled: widget.filled,
+            prefixIcon: widget.prefixIcon,
             prefixIconColor: AppStyles.style16.color,
             labelText: widget.label,
             labelStyle: widget.labelStyle,
             fillColor: widget.fillColor,
-            border: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: AppStyles.style14.color!.withValues(alpha: 0.2),
-                width: 1,
-              ),
-            ),
+            border:
+                widget.border ??
+                UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppStyles.style14.color!.withValues(alpha: 0.2),
+                    width: 1,
+                  ),
+                ),
           ),
         ),
       ],
